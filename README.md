@@ -51,5 +51,5 @@
 
 * likes belongs_to proto, counter_cache: true
 
-*images belongs_to proto
+* images belongs_to proto
 
