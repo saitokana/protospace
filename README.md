@@ -12,7 +12,7 @@
     - member
     (deiviseを用いる)
 
-* protos
+* prototypes
     - id
     - catch_copy
     - concept
@@ -20,36 +20,34 @@
     - likes_count
     - comments_count
 
-* images
+* captured_images
     - id
     - name
-    - image
     - role
-    - proto_id
+    - prototype_id
 
 * comments
     - id
     - text
-    - proto_id
+    - prototype_id
 
 * likes
     - id
-    - proto_id
+    - prototype_id
 
 アソシエーション
 -------------
-* users has_many protos
+* users has_many prototypes
 
-* protos belongs_to user
-         has_many likes
-         has_many comments
-         acts_as_taggable_on :labels
-         acts_as_taggable
-         has_many images
+* prototype belongs_to user
+            has_many likes
+            has_many comments
+            acts_as_taggable_on :labels
+            has_many captured_images
 
-* comments belongs_to proto, counter_cache: true
+* comments belongs_to prototype, counter_cache: true
 
-* likes belongs_to proto, counter_cache: true
+* likes belongs_to prototype, counter_cache: true
 
-* images belongs_to proto
+* captured_images belongs_to prototype
 
