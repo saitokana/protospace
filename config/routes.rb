@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :prototypes, only: [:index]
-  root to: "prototypes#index"
+  resources :prototypes, only: [:index, :new]
+  root to: "top#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
