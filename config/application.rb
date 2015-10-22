@@ -24,3 +24,10 @@ module Protospace
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+# config.generators do |g|
+# g.test_framework nil #to skip test framework
+# g.assets false
+# g.helper false
+# g.stylesheets false
+# end
