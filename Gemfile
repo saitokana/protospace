@@ -29,11 +29,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'haml-rails'
 gem 'erb2haml'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'sass-rails', '~> 5.0'
+gem 'devise'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
