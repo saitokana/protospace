@@ -35,8 +35,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
 gem 'carrierwave'
-gem 'rmagick'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
