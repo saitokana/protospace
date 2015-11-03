@@ -9,7 +9,7 @@
               = f.text_field :name, autofocus: true, placeholder: "Input Username"
             .user-image.col-md-2
               %button.btn.btn-primary Add image
-              = f.file_field :image
+              = f.file_field :avatar
           = f.email_field :email, autofocus: true, placeholder: "Email address", class: 'user-email', id: 'inputEmail'
           = f.password_field :password, autocomplete: "off", placeholder: "Password", class: 'user-password', id: 'inputPassword'
           = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password"
