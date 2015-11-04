@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :prototypes, only: [:index, :new]
   root to: "top#index"
   # The priority is based upon order of creation: first created -> highest priority.
