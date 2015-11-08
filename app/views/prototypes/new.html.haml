@@ -8,18 +8,26 @@
         .row
           .col-md-12
             .cover-image-upload
-              %input{ type: "file" }/
+              = f.fields_for :captured_images do |image|
+                = image.file_field :name
+                = image.hidden_field :role, value: :main
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  %input{ type: "file" }/
+                  = f.fields_for :captured_images do |image|
+                    = image.file_field :name
+                    = image.hidden_field :role, value: :sub
               %li.list-group-item.col-md-4
                 .image-upload
-                  %input{ type: "file" }/
+                  = f.fields_for :captured_images do |image|
+                    = image.file_field :name
+                    = image.hidden_field :role, value: :sub
               %li.list-group-item.col-md-4
-                .image-upload-plus
-                  %span +
+                .image-upload
+                  = f.fields_for :captured_images do |image|
+                    = image.file_field :name
+                    = image.hidden_field :role, value: :sub
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy"
@@ -36,3 +44,5 @@
                 %input{ type: "text", placeholder: "Application" }/
         .row.text-center.proto-btn
           %button.btn.btn-lg.btn-primary.btn-block{ type: "submit" } Publish
+
+
