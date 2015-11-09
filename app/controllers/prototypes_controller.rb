@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototypes = Prototype.all.page(params[:page]).per(8)
+    @prototypes = Prototype.all.page(params[:page])
   end
 
   def new
@@ -11,7 +11,8 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.create(prototype_params)
-    redirect_to :root and return
+    @prototype.create_captured_images(images_params)
+    redirect_to :root
   end
 
   def edit
@@ -25,7 +26,11 @@ class PrototypesController < ApplicationController
 
   private
   def prototype_params
-    params.require(:prototype).permit(:catch_copy, :concept, :title, captured_images_attributes: [:id, :name,:role]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:catch_copy, :concept, :title).merge(user_id: current_user.id)
+  end
+
+  def images_params
+    params.require(:prototype).require(:captured_images_attributes).require("0")
   end
 
 end
