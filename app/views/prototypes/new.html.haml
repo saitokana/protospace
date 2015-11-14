@@ -5,21 +5,22 @@
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
+      = f.fields_for :captured_images do |image|
         .row
           .col-md-12
             .cover-image-upload
-              %input{ type: "file" }/
+              = image.file_field :main, required: true
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  %input{ type: "file" }/
+                  = image.file_field :sub1
               %li.list-group-item.col-md-4
                 .image-upload
-                  %input{ type: "file" }/
+                  = image.file_field :sub2
               %li.list-group-item.col-md-4
-                .image-upload-plus
-                  %span +
+                .image-upload
+                  = image.file_field :sub3
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy"
