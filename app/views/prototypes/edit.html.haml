@@ -1,0 +1,38 @@
+.container.proto-new
+  = form_for @prototype do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = f.text_field :title, placeholder: "Title", class: "proto-new-title"
+      = f.fields_for :captured_images, @captured_images.build do |image|
+        .row
+          .col-md-12
+            .cover-image-upload
+              = image.file_field :main, value: @prototype.main_image
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image.file_field :sub1, value: @prototype.sub_images[0].to_s
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image.file_field :sub2, value: @prototype.sub_images[1].to_s
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image.file_field :sub3, value: @prototype.sub_images[2].to_s
+        .row.proto-description
+          .col-md-12
+            = f.text_field :catch_copy, placeholder: "Catch Copy"
+          .col-md-12
+            = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+          .col-md-12
+            %h4 Tag List
+            .row
+              .col-md-3
+                %input{ type: "text", placeholder: "Web Design" }/
+              .col-md-3
+                %input{type: "text", placeholder: "UI" }/
+              .col-md-3
+                %input{ type: "text", placeholder: "Application" }/
+        .row.text-center.proto-btn
+          %button.btn.btn-lg.btn-primary.btn-block{ type: "submit" } Publish
