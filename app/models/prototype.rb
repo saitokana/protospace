@@ -20,12 +20,9 @@ class Prototype < ActiveRecord::Base
     captured_image.each{ |k, v| k == "main" ? captured_images.main.create(name: v) : captured_images.sub.create(name: v) }
   end
 
-  def destroy_image(prototype)
-    if captured_images.main.count == 2
-      captured_images.main.find_by(prototype_id: prototype.id).destroy
-    end
-    while captured_images.sub.count >= 4 do
-      captured_images.sub.find_by(prototype_id: prototype.id).destroy
+  def update_captured_images(captured_image)
+    captured_image.each do |k, v|
+     k == '0' ? captured_images.main.first.update(name: v[:name]) : captured_images.sub[k.to_i - 1].update(name: v[:name])
     end
   end
 
