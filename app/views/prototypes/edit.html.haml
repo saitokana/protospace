@@ -4,22 +4,20 @@
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
-      = f.fields_for :captured_images, @captured_images.build do |image|
         .row
           .col-md-12
             .cover-image-upload
-              = image.file_field :main, value: @prototype.main_image
+              = f.fields_for :captured_images, @captured_images.main do |image|
+                = image.file_field :name
+                = image.hidden_field :status, value: 'main'
           .col-md-12
             %ul.proto-sub-list.list-group
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = image.file_field :sub1, value: @prototype.sub_images[0].to_s
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = image.file_field :sub2, value: @prototype.sub_images[1].to_s
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = image.file_field :sub3, value: @prototype.sub_images[2].to_s
+              - @captured_images.sub.each do |sub|
+                %li.list-group-item.col-md-4
+                  .image-upload
+                    = f.fields_for :captured_images, sub do |image|
+                      =image.file_field :name
+                      =image.hidden_field :status, value: 'sub'
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy"
