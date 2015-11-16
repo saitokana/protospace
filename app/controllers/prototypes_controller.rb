@@ -28,11 +28,15 @@ class PrototypesController < ApplicationController
   def update
     @prototype = Prototype.find(params[:id])
     @prototype.update(prototype_params)
-    @prototype.create_captured_images(images_params)
-    @prototype.destroy_image(@prototype)
+    @prototype.update_captured_images(update_images_params)
     redirect_to :root
   end
 
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    @prototype.destroy
+    redirect_to :root
+  end
 
   private
   def prototype_params
@@ -41,6 +45,10 @@ class PrototypesController < ApplicationController
 
   def images_params
     params.require(:prototype).require(:captured_images_attributes).require("0")
+  end
+
+  def update_images_params
+    params.require(:prototype).require(:captured_images_attributes)
   end
 
 
