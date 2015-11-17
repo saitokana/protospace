@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
 
+  before_action :set_prototype, only[:show, :edit. :update]
+
   def index
     @prototypes = Prototype.all.page(params[:page])
   end
@@ -11,17 +13,31 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.create(prototype_params)
-    @prototype.create_captured_images(images_params)
-    redirect_to :root
+    if @prototype.save
+      @prototype.create_captured_images(images_params)
+      redirect_to :root, notice: '新しくprototypeを作成しました'
+    else
+      redirect_to :back, success: '入力が不十分です'
+    end
   end
 
   def edit
-    @prototype = Prototype.find(params[:id])
+    @captured_images = @prototype.captured_images
   end
 
   def show
+  end
+
+  def update
+    @prototype.update(prototype_params)
+    @prototype.update_captured_images(update_images_params)
+    redirect_to :root, notice: '更新しました'
+  end
+
+  def destroy
     @prototype = Prototype.find(params[:id])
-    @user = prototype.user
+    @prototype.destroy
+    redirect_to :root, notice: '削除しました'
   end
 
   private
@@ -30,7 +46,16 @@ class PrototypesController < ApplicationController
   end
 
   def images_params
-    params.require(:prototype).require(:captured_images_attributes).require("0")
+    params.require(:prototype).require(:captured_images_attributes).require('0')
   end
+
+  def update_images_params
+    params.require(:prototype).require(:captured_images_attributes)
+  end
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
+  end
+
 
 end
