@@ -3,19 +3,19 @@
     .col-md-6
       .media
         .media-left
-          = link_to image_tag(@user.avatar, alt: '64x64', data:{ holder:{ rendered: 'true' } }, data:{ src: 'holder.js/64x64' }, style: 'width: 64px; height: 64px;'), root_path, class: 'media-object'
+          = link_to image_tag(@prototype.user.avatar, alt: '64x64', data:{ holder:{ rendered: 'true' } }, data:{ src: 'holder.js/64x64' }, style: 'width: 64px; height: 64px;'), root_path, class: 'media-object'
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.catch_copy
-            - if user_signed_in? && current_user.id == @user.id
+            - if user_signed_in? && current_user.id == @prototype.user.id
               = link_to 'edit', edit_prototype_path(@prototype)
               = link_to 'destroy', prototype_path(@prototype), method: :delete
 
           .proto-user
-            = link_to @user.name, root_path
+            = link_to @prototype.user.name, root_path
             %span.degree
-              = @user.profile
-              = @user.member
+              = @prototype.user.profile
+              = @prototype.user.member
 
     .col-md-6.text-right
       %button.btn.btn-default

@@ -13,11 +13,11 @@ class Prototype < ActiveRecord::Base
   end
 
   def posted_date
-    created_at.strftime("%b %d")
+    created_at.strftime('%b %d')
   end
 
   def create_captured_images(captured_image)
-    captured_image.each{ |k, v| k == "main" ? captured_images.main.create(name: v) : captured_images.sub.create(name: v) }
+    captured_image.each{ |k, v| k == 'main' ? captured_images.main.create(name: v) : captured_images.sub.create(name: v) }
   end
 
   def update_captured_images(captured_image)
