@@ -2,6 +2,7 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user_id, :title, :catch_copy, :concept
   has_many :captured_images
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :captured_images
 
   def main_image
@@ -24,6 +25,10 @@ class Prototype < ActiveRecord::Base
     captured_image.each do |k, v|
      k == '0' ? captured_images.main.first.update(name: v[:name]) : captured_images.sub[k.to_i - 1].update(name: v[:name])
     end
+  end
+
+  def like_user(user)
+    likes.find_by(user_id: user)
   end
 
 
