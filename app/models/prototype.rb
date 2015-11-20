@@ -27,7 +27,7 @@ class Prototype < ActiveRecord::Base
     end
   end
 
-  def like_user(user)
+  def whether_user_liked(user)
     likes.find_by(user_id: user)
   end
 
