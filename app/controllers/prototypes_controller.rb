@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :set_prototype, only[:show, :edit. :update]
+  before_action :set_prototype, only: [:show, :edit, :update]
 
   def index
     @prototypes = Prototype.all.page(params[:page])
@@ -15,7 +15,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.create(prototype_params)
     if @prototype.save
       @prototype.create_captured_images(images_params)
-      redirect_to :root, notice: '新しくprototypeを作成しました'
+      redirect_to :root, success: '新しくprototypeを作成しました'
     else
       redirect_to :back, success: '入力が不十分です'
     end
@@ -26,18 +26,19 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @like = Like.where(prototype_id: params[:id]).first_or_initialize
   end
 
   def update
     @prototype.update(prototype_params)
     @prototype.update_captured_images(update_images_params)
-    redirect_to :root, notice: '更新しました'
+    redirect_to :root, success: '更新しました'
   end
 
   def destroy
     @prototype = Prototype.find(params[:id])
     @prototype.destroy
-    redirect_to :root, notice: '削除しました'
+    redirect_to :root, success: '削除しました'
   end
 
   private
