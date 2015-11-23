@@ -1,6 +1,6 @@
 $('#comment_field').val('');
-$('#comment_count').html(
-  '<%= j(" (#{@prototype.comments.count}) ") %>'
+$('#comment_count').text(
+  '<%= j(" (#{@prototype.comments_count}) ") %>'
 );
 $('#comments').html(
   '<%= j(render partial: 'prototypes/comments/comment', collection: @prototype.comments) %>'

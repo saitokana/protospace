@@ -44,7 +44,7 @@
     %h4.col-md-12
       Comments
       %span.num#comment_count
-        = @prototype.comments.count
+        = "(#{ @prototype.comments_count })"
       .col-md-8#comments
         = render partial: 'prototypes/comments/comment', collection: @prototype.comments
       %form.form-inline{ role: 'form'}
