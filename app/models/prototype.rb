@@ -1,9 +1,15 @@
 class Prototype < ActiveRecord::Base
-  belongs_to :user
+
   validates_presence_of :user_id, :title, :catch_copy, :concept
+
+  belongs_to :user
   has_many :captured_images
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   accepts_nested_attributes_for :captured_images
+
+  paginates_per 8
 
   def main_image
     captured_images.main.first.name
@@ -32,6 +38,5 @@ class Prototype < ActiveRecord::Base
   end
 
 
-  paginates_per 8
 
 end

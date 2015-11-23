@@ -27,6 +27,7 @@ class PrototypesController < ApplicationController
 
   def show
     @like = Like.where(prototype_id: params[:id]).first_or_initialize
+    @comment = Comment.new
   end
 
   def update

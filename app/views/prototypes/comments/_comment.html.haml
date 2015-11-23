@@ -1,0 +1,11 @@
+.media
+  .media-left
+    = link_to '#' do
+      = image_tag comment.user.avatar, width: 64, height: 64
+  .media-body
+    %h4#top-aligned-media.media-heading
+      = comment.user.name
+      %a.anchorjs-link{ href: '#top-aligned-media'}
+        %span.anchorjs-icon
+    %p
+      = comment.text
