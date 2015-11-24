@@ -13,6 +13,7 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.create(prototype_params)
+    @prototype.tag_list.add(tags_params)
     if @prototype.save
       @prototype.create_captured_images(images_params)
       redirect_to :root, success: '新しくprototypeを作成しました'
@@ -31,6 +32,7 @@ class PrototypesController < ApplicationController
   end
 
   def update
+    @prototype.tag_list = tags_params
     @prototype.update(prototype_params)
     @prototype.update_captured_images(update_images_params)
     redirect_to :root, success: '更新しました'
@@ -59,5 +61,8 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+def tags_params
+  params.require(:prototype).require(:tags).values
+end
 
 end
