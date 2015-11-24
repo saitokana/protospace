@@ -3,5 +3,6 @@
     .tag-list
       %h2 Tag List
       - @tags.each do |tag|
-        .col-sm-4
-          = link_to tag.name, tag_path(tag), class: "btn tag-btn"
+        - if tag.taggings_count > 0
+          .col-sm-4
+            = link_to tag.name, tag_path(tag), class: "btn tag-btn"
