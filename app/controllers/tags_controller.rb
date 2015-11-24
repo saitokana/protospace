@@ -1,11 +1,11 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = Prototype.all_tags
+    @tags = ActsAsTaggableOn::Tag.most_used
   end
 
   def show
-    @tag = Prototype.all_tags.find(params[:id])
+    @tag = ActsAsTaggableOn::Tag.most_used.find(params[:tag_id])
     @prototype = Prototype.tagged_with(@tag.name)
   end
 
