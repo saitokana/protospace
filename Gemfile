@@ -35,6 +35,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 3.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Access an IRB console on exception pages or by using <%= console %> in views
