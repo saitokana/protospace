@@ -9,6 +9,8 @@
   %body
     = render "layouts/header"
     - flash.each do |key, value|
+      - key = "info" if key == "notice"
+      - key = "danger"  if key == "alert"
       %div{ class: "alert alert-#{key}" }
         "#{value}"
         %button{ class: 'close', data:{ dismiss: 'alert'}, aria:{ hidden: 'true' } } &times;
