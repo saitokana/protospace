@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @prototypes = current_user.prototypes.page(params[:page])
+  end
+
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :profile, :member, :position, :image)
