@@ -26,14 +26,15 @@
             = f.text_field :catch_copy, placeholder: 'Catch Copy(必須)'
           .col-md-12
             = f.text_area :concept, cols: '30', rows: '4', placeholder: 'Concept（必須）'
+        = f.fields_for :tags do |tag|
           .col-md-12
             %h4 Tag List
             .row
               .col-md-3
-                %input{ type: 'text', placeholder: 'Web Design' }/
+                = tag.text_field :'0'
               .col-md-3
-                %input{type: 'text', placeholder: 'UI' }/
+                = tag.text_field :'1'
               .col-md-3
-                %input{ type: 'text', placeholder: 'Application' }/
+                = tag.text_field :'2'
         .row.text-center.proto-btn
-          %button.btn.btn-lg.btn-primary.btn-block{ type: 'submit' } Publish
+          = f.submit 'PUBLISH', class: 'btn btn-primary btn-block'

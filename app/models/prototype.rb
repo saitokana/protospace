@@ -11,6 +11,8 @@ class Prototype < ActiveRecord::Base
 
   paginates_per 8
 
+  acts_as_taggable
+
   def main_image
     captured_images.main.first.name
   end

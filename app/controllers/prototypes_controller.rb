@@ -44,7 +44,7 @@ class PrototypesController < ApplicationController
 
   private
   def prototype_params
-    params.require(:prototype).permit(:catch_copy, :concept, :title).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:catch_copy, :concept, :title).merge(user_id: current_user.id, tag_list: params[:prototype][:tags].values)
   end
 
   def images_params
@@ -59,5 +59,8 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+def tags_params
+  params.require(:prototype).require(:tags).values
+end
 
 end
