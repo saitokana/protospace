@@ -1,0 +1,5 @@
+$('li').removeClass('active');
+$('li.popular').addClass('active');
+$('.proto-list .row').html(
+  '<%= j(render partial: 'prototypes/prototype', collection: @prototypes) %>'
+);
