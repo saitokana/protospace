@@ -431,7 +431,7 @@ body {
     height: 500px;
     position: relative;
     margin-bottom: 20px;
-    
+
     input {
       position: absolute;
       left: 0;
@@ -443,8 +443,22 @@ body {
       filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
       cursor: pointer;
     }
+
   }
   
+  #main_image_preview{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 500px;
+   
+  }
+
+
   .list-group-item {
     border: 0;
     margin-bottom: 20px;
@@ -467,6 +481,16 @@ body {
       }      
     }
     
+    #sub_1, #sub_2, #sub_3, #sub_4{
+      display: none;
+      height: 200px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
     .image-upload-plus {
       height: 200px;
       width: 100%;
@@ -611,3 +635,7 @@ body {
     }
   }
 }
+  #hide_form{
+    display: none;
+    list-style: none;
+  }
