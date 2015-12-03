@@ -9,18 +9,29 @@
         .row
           .col-md-12
             .cover-image-upload
+              = image_tag (), { id: 'main_image_preview', class: 'col-md-12' }
               = image.file_field :main, required: true
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag (), { id: 'sub_1' }
                   = image.file_field :sub1
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag (), { id: 'sub_2' }
                   = image.file_field :sub2
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag (), { id: 'sub_3' }
                   = image.file_field :sub3
+              %li.list-group-item.col-md-4#hide_form
+                .image-upload
+                  = image_tag (), { id: 'sub_4'}
+                  = image.file_field :sub4
+              %li.list-group-item.col-md-4#add_new_form
+                .image-upload-plus
+                  %span +
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: 'Catch Copy(必須)'
