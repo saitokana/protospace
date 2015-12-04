@@ -1,9 +1,9 @@
 $(function(){
-  avatar_preview();
+  avatarPreview();
 });
 
 
-function avatar_preview(){
+function avatarPreview(){
   $('#user_avatar').change(function(){
     if(!this.files.length){
       return;
@@ -12,7 +12,6 @@ function avatar_preview(){
       const file = $(this).prop('files')[0];
       const fileReader = new FileReader();
       fileReader.onload = function(){
-        console.log(fileReader.result)
       $(".user-image").css('background-image', "url(" + fileReader.result + ")");
     }
     fileReader.readAsDataURL(file);
