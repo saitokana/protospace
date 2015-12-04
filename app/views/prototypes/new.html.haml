@@ -9,18 +9,22 @@
         .row
           .col-md-12
             .cover-image-upload
+              = image_tag (), { id: 'main_image_preview', class: 'col-md-12' }
               = image.file_field :main, required: true
           .col-md-12
             %ul.proto-sub-list.list-group
-              %li.list-group-item.col-md-4
+              - 1.upto(3) do |i|
+                %li.list-group-item.col-md-4
+                  .image-upload
+                    = image_tag (), id: "sub_#{i}"
+                    = image.file_field :"sub#{i}"
+              %li.list-group-item.col-md-4#hide_form
                 .image-upload
-                  = image.file_field :sub1
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = image.file_field :sub2
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = image.file_field :sub3
+                  = image_tag (), { id: 'sub_4'}
+                  = image.file_field :sub4
+              %li.list-group-item.col-md-4#add_new_form
+                .image-upload-plus
+                  %span +
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: 'Catch Copy(必須)'
@@ -38,3 +42,4 @@
                 = tag.text_field :'2'
         .row.text-center.proto-btn
           = f.submit 'PUBLISH', class: 'btn btn-primary btn-block'
+
