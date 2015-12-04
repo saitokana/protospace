@@ -22,8 +22,9 @@ function addMainImage(){
     const file = $(this).prop('files')[0]; //対象ファイルの取得
     const fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
     fileReader.onload = function(){ //読み込み後の処理onload(読み込み完了時のタイミングで発火するイベント)
-    $('#main_image_preview').attr('src', fileReader.result);
-    $('#main_image_preview').css('display', 'block');
+    const main = $('#main_image_preview')
+    main.attr('src', fileReader.result);
+    main.css('display', 'block');
     }
     fileReader.readAsDataURL(file);
     }
