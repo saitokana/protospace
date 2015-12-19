@@ -11,8 +11,6 @@
         %li.newest.active{ role: 'presentation' }
           = link_to 'Newest PROTO', prototypes_path, remote: true
       = link_to 'View Tags', tags_path, class: 'btn btn-default col-lg-1'
-.container.proto-list
-  .row
-    = render partial: 'prototypes/prototype', collection: @prototypes
-.text-center
-  = paginate @prototypes
+.proto-contents
+  = render partial: 'prototypes/prototype'
+
