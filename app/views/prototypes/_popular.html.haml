@@ -20,5 +20,5 @@
                       %li 
                         = link_to tag.name, tag_path(tag), class: 'btn btn-default'
 .text-center
-  = paginate @prototypes, remote: true
+  = paginate @prototypes, remote: true, url:url_for(action: :popular)
 

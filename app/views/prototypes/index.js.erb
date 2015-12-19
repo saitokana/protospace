@@ -1,5 +1,5 @@
 $('li').removeClass('active');
 $('li.newest').addClass('active');
-$('.proto-list .row').html(
-  '<%= j(render partial: 'prototypes/prototype', collection: @prototypes) %>'
+$('.proto-contents').html(
+  '<%= j(render partial: 'prototypes/prototype') %>'
 );
