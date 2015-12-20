@@ -1,0 +1,10 @@
+- if memo.need?
+  .memo-contain
+    %li.list-group-item.list-group-item-item-info.memo-list.memo-buy
+      = memo.text
+      = link_to 'buy', memo_path(memo), method: :delete, remote: true
+- if memo.leftover?
+  .memo-contain
+    %li.list-group-item.list-group-item-item-info.memo-list.memo-eat
+      = memo.text
+      = link_to 'eat', memo_path(memo), method: :delete, remote: true
