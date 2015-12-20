@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       get :popular
     end
   end
+  resources :memos, only: [:index, :create, :destroy]
   root to: "prototypes#index"
 end
