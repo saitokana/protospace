@@ -13,19 +13,6 @@
           = f.email_field :email, autofocus: true, placeholder: "Email address", class: 'user-email', id: 'inputEmail'
           = f.password_field :password, autocomplete: "off", placeholder: "Password", class: 'user-password', id: 'inputPassword'
           = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password"
-        .col-md-12
-          %h4 Member of
-          .user-user-member.row
-            .user-name.col-md-12
-              = f.text_area :member, placeholder: "Input Member"
-          %h4 Profile
-          .user-user-profile.row
-            .user-name.col-md-12
-              = f.text_area :profile, placeholder: "Input Profile"
-          %h4 Works
-          .user-name_image.row
-            .user-name.col-md-12
-              = f.text_area :position, placeholder: "Input Position"
       .row.text-center.user-btn
         = f.submit "Sign up", class: 'btn btn-lg btn-primary btn-block'
 

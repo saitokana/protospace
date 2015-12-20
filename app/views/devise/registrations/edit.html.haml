@@ -10,19 +10,6 @@
             =button_tag "Change image", class: "btn btn-primary"
             = f.file_field :avatar
         = f.text_field :email, class: "user-email"
-      .col-md-12
-        %h4 Member of
-        .user-user-member.row
-          .user-name.col-md-12
-            = f.text_field :member
-        %h4 Profile
-        .user-user-profile.row
-          .user-name.col-md-12
-            = f.text_area :profile, cols: "30", rows: "4"
-        %h4 Works
-        .user-name_image.row
-          .user-name.col-md-12
-            = f.text_area :position, cols: "30", rows: "4"
     .field
       = f.label :current_password
       = f.password_field :current_password, autocomplete: "off"
