@@ -675,4 +675,21 @@ a.newesr{
   background: #fff5ee;
 }
 
+.btn-material {
+  background-image: linear-gradient(-180deg, #FFCC33 0%, #FFCC33 100%);
+  border-radius: 3px;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.btn-memo {
+  background-image: linear-gradient(-180deg, #CCFF99 0%, #CCFF99 100%);
+  border-radius: 3px;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+}
 
