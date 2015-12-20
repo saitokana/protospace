@@ -10,7 +10,10 @@
           = link_to 'time', popular_prototypes_path, remote: true, class: 'popular'
         %li{ role: 'presentation' }
           = link_to 'cost', prototypes_path, remote: true, class: 'newest btn-primary'
-      = link_to 'material', tags_path, class: 'btn btn-default col-lg-1'
+        %li{ role: 'presentation' }
+          = link_to 'material', tags_path, class: 'btn btn-material col-lg-1'
+        %li{ role: 'presentation' }
+          = link_to "memo", memos_path, class: 'btn btn-memo col-lg-1'
 .proto-contents
   = render partial: 'prototypes/prototype'
 
