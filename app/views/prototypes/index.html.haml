@@ -1,16 +1,16 @@
 .jumbotron
   .container.text-center
-    = image_tag 'header_logo.png', alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '73px'
+    = image_tag 'tasty2.png', alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '130x1z1px'
 
 .filter-nav
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.popular{ role: 'presentation' }
-          = link_to 'Popular PROTO', popular_prototypes_path, remote: true
-        %li.newest.active{ role: 'presentation' }
-          = link_to 'Newest PROTO', prototypes_path, remote: true
-      = link_to 'View Tags', tags_path, class: 'btn btn-default col-lg-1'
+        %li{ role: 'presentation' }
+          = link_to 'time', popular_prototypes_path, remote: true, class: 'popular'
+        %li{ role: 'presentation' }
+          = link_to 'cost', prototypes_path, remote: true, class: 'newest btn-primary'
+      = link_to 'material', tags_path, class: 'btn btn-default col-lg-1'
 .proto-contents
   = render partial: 'prototypes/prototype'
 
