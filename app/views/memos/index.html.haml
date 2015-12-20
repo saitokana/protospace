@@ -1,0 +1,21 @@
+.container.user-page
+  %header.user-nav
+    .media
+      .container.proto-new
+        = form_for @memo, remote: true do |f|
+          .row.proto-description
+            .col-md-12
+              = f.text_field :text
+              = f.hidden_field :status, value: :need
+          .row.text-center.proto-btn
+            = f.submit 'need', class: 'btn btn-primary btn-block'
+      .container.proto-new
+        = form_for @memo, remote: true do |f|
+          .row.proto-description
+            .col-md-12
+              = f.text_field :text
+              = f.hidden_field :status, value: :leftover
+          .row.text-center.proto-btn
+            = f.submit 'left', class: 'btn btn-primary btn-block'
+      %ul.list-group.memo-float
+        = render @memos

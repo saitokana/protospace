@@ -5,8 +5,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = ActsAsTaggableOn::Tag.most_used.find(params[:tag_id])
-    @prototype = Prototype.tagged_with(@tag.name)
+    @prototypes = Prototype.tagged_with(params[:tag_name]).page(params[:page])
   end
 
 end

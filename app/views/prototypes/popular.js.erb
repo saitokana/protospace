@@ -1,5 +1,5 @@
-$('li').removeClass('active');
-$('li.popular').addClass('active');
+$('a').removeClass('btn-primary');
+$('a.popular').addClass('btn-primary');
 $('.proto-contents').html(
-  '<%= j(render partial: 'prototypes/popular') %>'
+  '<%= j(render partial: 'prototypes/prototype') %>'
 );

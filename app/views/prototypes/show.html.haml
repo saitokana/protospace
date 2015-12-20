@@ -6,16 +6,12 @@
           = link_to image_tag(@prototype.user.avatar, alt: '64x64', data:{ holder:{ rendered: 'true' } }, data:{ src: 'holder.js/64x64' }, style: 'width: 64px; height: 64px;'), root_path, class: 'media-object'
         .media-body
           %h4#top-aligned-media.media-heading
-            = @prototype.catch_copy
             - if user_signed_in? && current_user.id == @prototype.user.id
               = link_to 'edit', edit_prototype_path(@prototype)
               = link_to 'destroy', prototype_path(@prototype), method: :delete
 
           .proto-user
             = link_to @prototype.user.name, root_path
-            %span.degree
-              = @prototype.user.profile
-              = @prototype.user.member
     .col-md-6.text-right
       = render 'prototypes/likes/like'
   .row
@@ -28,18 +24,20 @@
             = image_tag image, class: 'img-responsive'
   .row.proto-description
     .col-md-3
-      %h4 Catch Copy
-      %p #{ @prototype.title }
+      %h4 Time
+      %p #{ @prototype.time } minutes
     .col-md-6
-      %h4 Concept
-      %p #{ @prototype.concept }
-    .col-md-3
-      %h4 Tag List
-      %ul.proto-tag-list.list-inline
-        - unless @prototype.tag_list.blank?
+      %h4 Cost
+      %p  ¥ #{ @prototype.cost }
+    - unless @prototype.tag_list.blank?
+      .col-md-3
+        %h4 Tag List
+        %ul.proto-tag-list.list-inline
           - @prototype.tags.each do |tag|
             %li 
               = link_to tag.name, tag_path(tag), class: 'btn btn-default'
+    .form-group.col-md-2
+      = link_to 'link', @prototype.url, class: 'btn btn-primary'
   .row.proto-comments
     %h4.col-md-12
       Comments

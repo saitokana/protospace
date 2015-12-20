@@ -4,7 +4,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    = link_to (image_tag "logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "36px"), root_path, class: "navbar-brand"
+    = link_to (image_tag "logo9.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "65px"), root_path, class: "navbar-brand"
     .navbar-collapse.collapse.navbar-responsive-collapse
       - if user_signed_in?
         //login
@@ -23,7 +23,7 @@
                 = link_to "Logout", destroy_user_session_path, method: :delete
           %li
             .btn.btn-primary.navbar-btn
-              = link_to "New Proto", new_prototype_path
+              = link_to "New Dish", new_prototype_path
       - else
         //not login
         %ul.nav.navbar-nav.navbar-right

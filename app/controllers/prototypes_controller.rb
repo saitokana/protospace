@@ -3,15 +3,11 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update]
 
   def index
-    @prototypes = Prototype.order(created_at: :DESC).page(params[:page])
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    @prototypes = Prototype.order(cost: :ASC).page(params[:page])
   end
 
   def popular
-    @prototypes = Prototype.order(likes_count: :DESC).page(params[:page])
+    @prototypes = Prototype.order(time: :ASC).page(params[:page])
   end
 
   def new
@@ -23,9 +19,9 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.create(prototype_params)
     if @prototype.save
       @prototype.create_captured_images(images_params)
-      redirect_to :root, success: '新しくprototypeを作成しました'
+      redirect_to :root, success: 'well done! its time to eat!'
     else
-      redirect_to :back, success: '入力が不十分です'
+      redirect_to :back, success: 'please fill out all of the required sections'
     end
   end
 
@@ -52,7 +48,7 @@ class PrototypesController < ApplicationController
 
   private
   def prototype_params
-    params.require(:prototype).permit(:catch_copy, :concept, :title).merge(user_id: current_user.id, tag_list: params[:prototype][:tags].values)
+    params.require(:prototype).permit(:cost, :time, :title, :url).merge(user_id: current_user.id, tag_list: params[:prototype][:tags].values)
   end
 
   def images_params
