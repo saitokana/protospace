@@ -219,6 +219,7 @@ body {
 
 .btn-default {
   border: 1px solid #eee;
+  padding-right: 30px;
   &:hover {  
     border: 1px solid #eee;
     background: #eee;
@@ -232,20 +233,18 @@ body {
   opacity: 0.8;
   display: block;
   &:hover{
-    border: 1px solid #add8e6;
+    border: 1px solid #fa8072;
     backgroud: #eee;
-    color: #add8e6;
+    color: #fa8072;
   }
 }
 
 .btn-primary {
-  background-image: linear-gradient(-180deg, #67ABFA 0%, #4A8DDC 100%);
-  border: 1px solid #4A8EDD;
+  background-image: linear-gradient(-180deg, #fa8072 0%, #f08080 100%);
   border-radius: 3px;
   
   &:hover {
-    border: 1px solid #4A8EDD;
-    opacity: 0.9;
+    opacity: 0.6;
   }
 }
 
@@ -284,11 +283,11 @@ body {
 }
 
 .jumbotron {
-  background-image: image-url("header_bg.png");
+  background-image: image-url("logo6.jpeg");
   background-position:  center 92px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size:  100% auto;
+  background-size: 100%;
   padding: 80px 0;
   margin-bottom: 0;
 }
@@ -639,3 +638,41 @@ body {
     display: none;
     list-style: none;
   }
+
+.tag-text{
+  color: #fa8072;
+  font-family: Comic Sans MS;
+}
+
+a.popular,
+a.newesr{
+  color: gray !important;
+}
+
+
+.memo-list{
+  width: 40%;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  float: left;
+  ist-style: none;
+  paddinf-left: 0;
+  border: none;
+}
+
+.memo-float {
+  width: 270px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.memo-buy{
+  background: #fffff0;
+}
+
+.memo-eat{
+  background: #fff5ee;
+}
+
+
