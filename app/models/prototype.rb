@@ -1,6 +1,6 @@
 class Prototype < ActiveRecord::Base
 
-  validates_presence_of :user_id, :title, :catch_copy, :concept
+  validates_presence_of :user_id, :title, :time, :cost
 
   belongs_to :user
   has_many :captured_images
