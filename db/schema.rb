@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124003330) do
+ActiveRecord::Schema.define(version: 20151220072157) do
 
   create_table "captured_images", force: :cascade do |t|
     t.text     "name",         limit: 65535
@@ -36,15 +36,23 @@ ActiveRecord::Schema.define(version: 20151124003330) do
     t.datetime "updated_at"
   end
 
+  create_table "memos", force: :cascade do |t|
+    t.string   "text",       limit: 255
+    t.integer  "status",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "prototypes", force: :cascade do |t|
-    t.string   "catch_copy",     limit: 255
-    t.string   "concept",        limit: 255
     t.integer  "user_id",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title",          limit: 255
     t.integer  "likes_count",    limit: 4,   default: 0
     t.integer  "comments_count", limit: 4,   default: 0
+    t.integer  "cost",           limit: 4
+    t.integer  "time",           limit: 4
+    t.string   "url",            limit: 255
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -80,9 +88,6 @@ ActiveRecord::Schema.define(version: 20151124003330) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-    t.string   "profile",                limit: 255
-    t.string   "position",               limit: 255
-    t.string   "member",                 limit: 255
     t.string   "name",                   limit: 255
     t.string   "avatar",                 limit: 255
   end
