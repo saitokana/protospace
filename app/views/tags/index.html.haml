@@ -1,8 +1,7 @@
 .container.tag-container
   .row
-    .tag-list
-      %h2.tag-text Tag List
-      - @tags.each do |tag|
-        - if tag.taggings_count > 0
+    - @tags.each do |tag|
+      - if tag.taggings_count > 0
+        .tag-list
           .col-sm-4
             = link_to tag.name, tag_path(tag), class: "btn tag-btn"
