@@ -38,6 +38,7 @@ gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'fog'
 gem 'config'
+gem 'jquery-turbolinks'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Access an IRB console on exception pages or by using <%= console %> in views
