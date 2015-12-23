@@ -18,7 +18,7 @@
                   - unless prototype.tag_list.blank?
                     - prototype.tags.each do |tag|
                       %li 
-                        = link_to tag.name, tag_path(tag), class: 'btn btn-default'
+                        = link_to tag.name, tag_path(tag, tag_name: tag.name), class: 'btn btn-default'
 .text-center
   = paginate @prototypes, remote: true
 
