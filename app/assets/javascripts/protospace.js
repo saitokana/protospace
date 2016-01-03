@@ -3,6 +3,7 @@ $(function(){
   addMainImage();
   addSubImage();
   addNewFrom();
+  editMainImage();
 });
 
 function addNewFrom(){
@@ -48,3 +49,20 @@ function addSubImage(){
 }
 }
 
+function editMainImage(){
+  $('#prototype_captured_images_attributes_0_name').change(function(){
+    if(!this.files.length){
+      return; //ファイルがない場合undefined値を返す 選択した画像の数だけfilesという配列にはいっている
+    }
+    else{
+    const file = $(this).prop('files')[0]; //対象ファイルの取得
+    const fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
+    fileReader.onload = function(){ //読み込み後の処理onload(読み込み完了時のタイミングで発火するイベント)
+    const main = $('#main_image_preview')
+    main.attr('src', fileReader.result);
+    main.css('display', 'block');
+    }
+    fileReader.readAsDataURL(file);
+    }
+  });
+}

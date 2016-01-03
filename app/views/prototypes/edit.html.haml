@@ -8,6 +8,7 @@
           .col-md-12
             .cover-image-upload
               = f.fields_for :captured_images, @captured_images.main do |image|
+                = image_tag (), { id: 'main_image_preview', class: 'col-md-12' }
                 = image.file_field :name
                 = image.hidden_field :status, value: 'main'
           .col-md-12
