@@ -32,7 +32,7 @@ function addMainImage(){
 }
 
 function addSubImage(){
-  for(let i = 1; i <= 4; i++){
+  for(var i = 1; i <= 4; i++){
     $('#prototype_captured_images_attributes_0_sub' + i).change(function(){
       if(!this.files.length){
         return;
