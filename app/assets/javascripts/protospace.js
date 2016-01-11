@@ -1,5 +1,4 @@
-'use strict';
-$(function(){
+$(document).on('ready page:load', function() {
   addMainImage();
   addSubImage();
   addNewFrom();
@@ -20,10 +19,10 @@ function addMainImage(){
       return; //ファイルがない場合undefined値を返す 選択した画像の数だけfilesという配列にはいっている
     }
     else{
-    const file = $(this).prop('files')[0]; //対象ファイルの取得
-    const fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
+    var file = $(this).prop('files')[0]; //対象ファイルの取得
+    var fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
     fileReader.onload = function(){ //読み込み後の処理onload(読み込み完了時のタイミングで発火するイベント)
-    const main = $('#main_image_preview')
+    var main = $('#main_image_preview')
     main.attr('src', fileReader.result);
     main.css('display', 'block');
     }
@@ -38,8 +37,8 @@ function addSubImage(){
       if(!this.files.length){
         return;
       }
-      const file = $(this).prop('files')[0];
-      const fileReader = new FileReader();
+      var file = $(this).prop('files')[0];
+      var fileReader = new FileReader();
       fileReader.onload = function(){
         $('#sub_' + i).attr('src', fileReader.result);
         $('#sub_' + i).css('display', 'block');
@@ -55,10 +54,10 @@ function editMainImage(){
       return; //ファイルがない場合undefined値を返す 選択した画像の数だけfilesという配列にはいっている
     }
     else{
-    const file = $(this).prop('files')[0]; //対象ファイルの取得
-    const fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
+    var file = $(this).prop('files')[0]; //対象ファイルの取得
+    var fileReader = new FileReader();//何回か利用するので適当な変数に代入 ・FileReaderクラスを起動
     fileReader.onload = function(){ //読み込み後の処理onload(読み込み完了時のタイミングで発火するイベント)
-    const main = $('#main_image_preview')
+    var main = $('#main_image_preview')
     main.attr('src', fileReader.result);
     main.css('display', 'block');
     }
